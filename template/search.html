@@ -1,0 +1,111 @@
+ <div class="featurette similarity">
+       <div class="row">
+        	 <div class="col-xs-10 col-xs-offset-1">
+         		<h1>相似图片检索结果</h1>
+		</div>
+       </div>
+
+       <div class="row">
+         	<div class="col-lg-4 col-lg-offset-1 col-sm-4 col-sm-offset-1 col-xs-8 col-xs-offset-1">
+		 	<h4>输入的图片:</h4>
+			<div>
+				<img class="img-rounded" src="{{ STATIC_URL }}img/{{image_name}}"  height="255px" width="255px" />
+			</div>
+			<button class="labell" style="color:#428bca"><font face="Comic sans MS" >图片划区</font>
+			<br>
+        	</button> 
+			<button class="labelll" style="color:#428bca"><font face="Comic sans MS" >检索反馈</font>
+        	</button>
+		 </div>
+		 
+         	<div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-12 col-xs-offset-1">
+	   		<h4>相似的图片:</h4>
+	   		<div id="imgcontainer">
+			{% for image_rlt_name  in result %}
+				<div class="item" style="float: right;">
+				   	<img class="img-rounded"
+						src="{{ STATIC_URL }}img/dataset1/{{image_rlt_name}}" height="128" width="128" 
+						alt="similar image">
+				</div>
+			{% endfor %}
+			 </div>
+	 	</div>
+       </div>
+	  
+<!-- 			{% for image_rlt_name  in result2 %}
+				<div class="item">
+				   	<img class="img-rounded"
+						src="{{ STATIC_URL }}{{image_rlt_name}}" height="128" width="128" 
+						alt="similar image">
+				</div>
+			{% endfor %} -->
+
+</div>
+ <div id="demo_image_splite">
+    	
+    </div>
+ <div id = "demo_image_mark">
+
+ </div>
+
+
+ 
+<script type="text/javascript">
+
+// $(".labell").click(function(){
+// $.get('/image_splite')
+// alert("sssss");
+
+// });
+
+
+
+$(".labell").on("click", function(){
+    // var name = $(this).attr("value");
+    var name = "{{ STATIC_URL }}img/{{image_name}}"
+    // alert(name);
+    // console.log(name);
+    $.get("/image_splite",
+      {
+        image_raw:name
+      },
+    function(data,status){
+      // console.log(data);
+      $('#demo_image_splite').html(data); 
+      // +$('#demo_image_splite').html()    
+      $(document.body).animate({
+        'scrollTop': $('#demo_image_splite').offset().top
+      }, 1000);
+    }
+  );
+});
+
+$(".labelll").on("click", function(){
+    // var name = $(this).attr("value");
+    // var name = "{{ STATIC_URL }}img/{{image_name}}"
+    // alert(name);
+    // console.log(name);
+    // alert("{{ STATIC_URL }}img/dataset1/{{result}}");
+    $.get("/image_feedback",
+      {
+        // image_raw:name
+      },
+    function(data,status){
+      // console.log(data);
+      $('#demo_image_mark').html(data); 
+      // +$('#demo_image_splite').html()    
+      $(document.body).animate({
+        'scrollTop': $('#demo_image_mark').offset().top
+      }, 1000);
+    }
+  );
+});
+
+
+
+
+
+
+
+</script>
+

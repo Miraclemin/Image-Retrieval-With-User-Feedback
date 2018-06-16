@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>form test</title>
+        <link rel="stylesheet" href="{{ STATIC_URL }}css1/photocutter_lite.css"/>
+        <script src="{{ STATIC_URL }}javascript1/jquery172.js"></script>
+        <script src="{{ STATIC_URL }}javascript1/displayer.js"></script>
+        <script src="{{ STATIC_URL }}javascript1/photocutter_lite.js"></script>
+        <script>
+            $().ready(function(){
+                $(".photocutter").photocutter();
+            });
+        </script>
+    </head>
+    <body>
+        <div class="photocutter" style="width:800px;height:400px;left: 50%;transform: translate(-50%,0%);"></div>
+        <!-- left: 50%;transform: translate(-50%,0%); -->
+    </body>
+</html>

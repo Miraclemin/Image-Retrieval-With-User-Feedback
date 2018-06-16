@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}javascript1/baron.css" />
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}javascript1/baron-skins.css" />
+
+    <style>
+        .baron__scroller {
+            height: 500px;
+        }
+        .baron .baron__track {
+            right: 20px;
+            width: 14px;
+            border-radius: 7px;
+            background-image: linear-gradient(to right, #d3d3d3, #e5e5e5);
+        }
+        .baron .baron__bar {
+            width: 12px;
+            border: 1px solid #e1005d;
+            border-radius: 6px;
+            background-image: linear-gradient(to right, #d4005a, #e1005d);
+        }
+        .baron__str{
+            height: 100%;
+            width: 12px;
+            position: relative;
+        }
+        .baron__str ul{
+            padding: 0 2px 0 3px;
+            list-style-type: none;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin: -10px 0 0 0;
+        }
+        .baron__str ul li{
+            width: 6px;
+            margin-bottom: 3px;
+            border-bottom: 1px solid #fff;
+        }
+
+        #card-blocks-block{
+            border-left: 1px solid #d3d3d3;
+            border-bottom: 1px solid #d3d3d3;
+            width: 1280px;
+            height: 590px;
+        }
+        .card-blocks-menu{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 1280px;
+            overflow: hidden;
+        }
+        .card-blocks-menu:last-child:after{
+            content: ".";
+            font-size: 1px;
+            height: 30px;
+            border-bottom: 1px solid #d3d3d3;
+            display: block;
+        }
+        .card-blocks-menu-item{
+            min-width: 100px;
+            background-color: #00549f;
+            color: #fff;
+            cursor: pointer;
+            padding: 6px;
+            border-top: 1px solid #d3d3d3;
+            display: inline-block;
+            float:left;
+        }
+        .card-blocks-menu-item-active{
+            background-color: #fff;
+            color: #00549f;
+            border-right: 1px solid #d3d3d3;
+        }
+        .card-blocks-wrap{
+            border-right: 1px solid #d3d3d3;
+            height: 530px;
+            margin: 0;
+            padding-top: 30px;
+        }
+        .card-block{
+            width: 1280px;
+            padding: 10px 20px 10px 30px;
+            height: 480px;
+            display: none;
+            position: relative;
+        }
+        .card-block-active{
+            display: block;
+        }
+        .card-block-img{
+            display: inline-block;
+            margin: 0 30px 30px 0;
+            position: relative;
+        }
+        .card-block-gradient-bottom{
+            position: absolute;
+            top: 450px;
+            left: 30px;
+            height: 50px;
+            width: 580px;
+            background: linear-gradient(to top, #fff, transparent);
+        }
+        .card-block-gradient-up{
+            position: absolute;
+            top: 0;
+            left: 30px;
+            height: 50px;
+            width: 580px;
+            background: linear-gradient(to top, transparent, #fff);
+            display: none;
+        }
+        input[type=radio].card-block-radio:not(old){
+            width: 2em;
+            margin: 0;
+            padding: 0;
+            font-size: 1em;
+            opacity: 0;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        input[type=radio].card-block-radio:not(old) + label > span {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #dedede;
+            border-radius: 8px;
+            background: #dedede;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        input[type=radio].card-block-radio:not(old) + label > span > span{
+            display: inline-block;
+            width: 16px;
+            height: 14px;
+            margin: 2px 0 0 -1px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #eee;
+        }
+        input[type=radio].card-block-radio:not(old):checked + label > span > span > span{
+            display: block;
+            margin: 1px 0 0 3px;
+            width: 8px;
+            height: 8px;
+            border: 1px solid #e1005d;
+            border-radius: 4px;
+            background: #e1005d;
+        }
+    </style>
+    <script src="{{ STATIC_URL }}javascript1/jquery-2.2.0.min.js"></script>
+    <script src="{{ STATIC_URL }}javascript1/baron.js"></script>
+    <script src="{{ STATIC_URL }}javascript1/baron-script.js"></script>
+
+    <title>Block</title>
+</head>
+<body>
+<div id="card-blocks-block">
+    <div class="card-blocks-top clear-all">
+        <ul class="card-blocks-menu" id="card-blocks-menu">
+            <li class="card-blocks-menu-item card-blocks-menu-item-active">图片反馈</li>
+            <!-- <li class="card-blocks-menu-item">Блок 2</li>
+            <li class="card-blocks-menu-item">Блок 3</li> -->
+        </ul>
+    </div>
+
+    <div class="card-blocks-wrap" id="card-blocks-wrap">
+
+        <form id="select-card-block-item">
+            <div class="baron baron__root baron__clipper">
+                <div class="baron__scroller">
+                    <div class="card-block card-block-active">
+
+
+                    {% for image_rlt_name  in result %}
+                        <div class="card-block-img">
+                            <input type="checkbox" class="card-block-radio" name="card-block-value" value="{{image_rlt_name}}" id="card-block-value1">
+                            <label for="card-block-value1"><span><span><span></span></span></span><img src="{{ STATIC_URL }}img/dataset1/{{image_rlt_name}}" height="128" width="128" ></label>
+                        </div>
+                    {% endfor %}
+
+                   <input type="button" class="submitted" name="card-block-value" value="二次检索" id="card-block-value1">
+
+
+
+
+                         <!--   <div class="card-block">
+
+                    </div>
+                    <div class="card-block-gradient-bottom"></div> -->
+                    <!-- <div class="card-block-gradient-up"></div> -->
+
+                </div>
+
+                <!-- <div class="baron__track">
+
+                    <div class="baron__free">
+                        <div class="baron__bar"><div class="baron__str"><ul><li></li><li></li><li></li></ul></div></div>
+                    </div>
+                </div> -->
+            </div>
+
+        </form>
+
+    </div>
+   <div id="demo_feedback" style="float: left">
+        
+    </div>
+
+    </div>
+
+
+
+   <script>
+      $(".submitted").click(function(){
+          var checkID = {};//定义一个空数组
+          // var uncheckID={};
+          var all_imgs = {};
+          l=0;
+          {% for image_rlt_name  in result %}
+           all_imgs[l]="{{image_rlt_name}}";
+           l=l+1;
+          {% endfor %}
+
+          
+      
+
+  
+          $("input[name='card-block-value']:checked").each(function(i){//把所有被选中的复选框的值存入数组
+              checkID[i] =$(this).val();
+             
+          });
+          console.log(checkID);
+          //用Ajax传递参数
+         // $.get('/image_feedback_vector',{checkID:checkID},function(data,status){
+            // console.log(data);
+
+$.get("/image_vector/",
+      {
+        checkID:checkID,
+        all_imgs:all_imgs
+      },
+    function(data,status){
+        $('#demo_feedback').html(data);     
+        $(document.body).animate({
+        'scrollTop': $('#demo_feedback').offset().top})
+      // console.log(data);
+      // $('#demo_dsp').html(data+$('#demo_dsp').html());     
+      // $(document.body).animate({
+        // 'scrollTop': $('#demo_dsp').offset().top
+      // }, 1000);
+})
+
+
+         })
+     
+ </script>
+</body>
+</html>
