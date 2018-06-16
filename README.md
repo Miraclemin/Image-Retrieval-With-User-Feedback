@@ -85,7 +85,7 @@ This is the feedback_1 pic
 <br>
 This is the feedback_2 pic
 <br>
-![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/user_feedbackresult.png)
+![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/user_feedback_result.png)
 <br>
 This is the feedback_result pic
 <br>
@@ -93,3 +93,5 @@ This is the feedback_result pic
 <br>
 This is the pic_cut pic
 <br>
+
+# Remember star🌟 me, thx~😊
