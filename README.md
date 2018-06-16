@@ -68,12 +68,28 @@ In this step, you should can use `python3 manager.py runserver` and you can use 
 ![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/main.png)
 <br>
 This is the main pic
+<br>
 ![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/search.png)
 <br>
 This is the search pic
+<br>
 ![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/result.png)
 <br>
 This is the result pic
-![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/user_feedback.png)
 <br>
-This is the result pic
+![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/user_feedback_1.png)
+<br>
+This is the feedback_1 pic
+<br>
+![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/user_feedback_2.png)
+<br>
+This is the feedback_2 pic
+<br>
+![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/user_feedbackresult.png)
+<br>
+This is the feedback_result pic
+<br>
+![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/pic_cut.png)
+<br>
+This is the pic_cut pic
+<br>
