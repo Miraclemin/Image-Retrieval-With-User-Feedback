@@ -3,8 +3,13 @@ About: with picture cut and the user feedback based on SVM, this is the final co
 
 ## requirement
 keras
-python3 
+<br>
+python3
+<br>
 h5py
+<br>
+sklearn
+<br>
 You can install all by the command (pip3 install *** )
 
 ## File structure
@@ -58,3 +63,6 @@ In this step you should train a index file for your own image database, you can 
 `python3 index.py -database <path-to-dataset> -index <name-for-output-index>` the <path-to-dataset> is the path to your own dataset1. then it will generate a index file, and you should put it into the (static/) file. maybe in this step you should download some file like vgg16_weights_tf_dim_ordering_tf_kernels.h5 etc. please wait....
 ### Run The System
 In this step, you should can use `python3 manager.py runserver` and you can use visit `127.0.0.1`to see the web.
+
+## The System demo picture
+
