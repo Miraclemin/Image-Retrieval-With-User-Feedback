@@ -65,4 +65,4 @@ In this step you should train a index file for your own image database, you can 
 In this step, you should can use `python3 manager.py runserver` and you can use visit `127.0.0.1`to see the web.
 
 ## The System demo picture
-![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo pic/main.png)
+![](https://github.com/Miraclemin/Image-Retrieval-With-User-Feedback/raw/master/demo_pic/main.png)
