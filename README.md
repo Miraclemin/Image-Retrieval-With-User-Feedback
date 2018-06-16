@@ -7,7 +7,9 @@ python3
 h5py
 You can install all by the command (pip3 install *** )
 
-##File structure
+## File structure
+
+```structure
 ├── README.md
 ├── face_cluster
 │   │ 
@@ -47,7 +49,8 @@ You can install all by the command (pip3 install *** )
     ├── search.html.det
     ├── search2.html
     └── search3.html
-    
+```
+
 ## Usage
 ### First. Train The index file 
 In this step you should train a index file for your own image database, you can get it from 
